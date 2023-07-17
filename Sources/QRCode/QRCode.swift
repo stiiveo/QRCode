@@ -1,3 +1,4 @@
+
 import Foundation
 import UIKit
 
@@ -19,25 +20,28 @@ public struct QRCode {
         self.overlay = overlay
     }
 }
-
+ 
 extension QRCode {
-    public struct Color {
-        public let foreground: UIColor
-        public let background: UIColor
+    public func image(correctionLevel: CorrectionLevel = .H) -> UIImage? {
+        guard let qrcodeImage = CIImage.qrcode(
+            url: url,
+            correctionLevel: correctionLevel.rawValue) else { return nil }
         
-        public init(foreground: UIColor, background: UIColor) {
-            self.foreground = foreground
-            self.background = background
-        }
-    }
-    
-    public struct Overlay {
-        public let size: CGSize
-        public let image: UIImage
+        var scaled = qrcodeImage.scaled(size)
         
-        public init(size: CGSize, image: UIImage) {
-            self.size = size
-            self.image = image
+        // color
+        if let coloredImage = scaled.withColor(
+            foreground: color.foreground,
+            background: color.background) {
+            scaled = coloredImage
         }
+        
+        // overlay
+        if let overlay = overlay,
+           let overlayedImage = scaled.addingOverlay(overlay.image, size: overlay.size) {
+            scaled = overlayedImage
+        }
+        
+        return UIImage(ciImage: scaled)
     }
 }

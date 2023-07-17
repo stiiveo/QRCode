@@ -16,6 +16,13 @@ final class QRCodeTests: XCTestCase {
         XCTAssertEqual(qrCode.overlay, overlay)
     }
     
+    func test_correction_levels() {
+        XCTAssertEqual(CorrectionLevel.H.rawValue, "H")
+        XCTAssertEqual(CorrectionLevel.L.rawValue, "L")
+        XCTAssertEqual(CorrectionLevel.M.rawValue, "M")
+        XCTAssertEqual(CorrectionLevel.Q.rawValue, "Q")
+    }
+    
     private func anyURL() -> URL {
         URL(string: "www.google.com")!
     }
