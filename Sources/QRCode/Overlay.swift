@@ -1,7 +1,7 @@
 
 import UIKit
 
-public struct Overlay {
+public struct Overlay: Equatable {
     public let size: CGSize
     public let image: UIImage
     

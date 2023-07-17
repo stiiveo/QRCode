@@ -1,7 +1,7 @@
 
 import UIKit
 
-public struct Color {
+public struct Color: Equatable {
     public let foreground: UIColor
     public let background: UIColor
     
