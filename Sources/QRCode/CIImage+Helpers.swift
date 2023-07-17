@@ -2,7 +2,7 @@
 import UIKit
 
 extension CIImage {
-    static func qrcode(url: URL, correctionLevel: String) -> CIImage? {
+    static func qrCode(url: URL, correctionLevel: String) -> CIImage? {
         guard let filter = CIFilter.qrCodeGenerator else { return nil }
         
         filter.setDefaults()
