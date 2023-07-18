@@ -1,5 +1,5 @@
 //
-//  CIFilterTests.swift
+//  CIFilterHelperTests.swift
 //  
 //
 //  Created by JasonOu on 2023/7/17.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import QRCode
 
-final class CIFilterTests: XCTestCase {
+final class CIFilterHelperTests: XCTestCase {
     func test_initializer_helpers() {
         XCTAssertEqual(CIFilter.qrCodeGenerator?.name, "CIQRCodeGenerator")
         XCTAssertEqual(CIFilter.falseColor?.name, "CIFalseColor")
