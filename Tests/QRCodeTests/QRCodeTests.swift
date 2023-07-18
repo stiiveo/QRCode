@@ -7,7 +7,7 @@ final class QRCodeTests: XCTestCase {
         let correctionLevel = CorrectionLevel.H
         let size = CGSize(width: 200, height: 200)
         let color = Color(foreground: .blue, background: .white)
-        let overlayImage = UIImage(systemName: "star")!
+        let overlayImage = anyImage()
         let overlay = Overlay(image: overlayImage, sizeProportion: 0.3)
         let qrCode = QRCode(url: url, correctionLevel: correctionLevel, size: size, color: color, overlay: overlay)
         
