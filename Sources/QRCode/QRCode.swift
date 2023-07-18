@@ -41,8 +41,14 @@ extension QRCode {
         }
         
         // overlay
-        if let overlay = overlay,
-           let overlayedImage = scaled.addingOverlay(overlay.image, size: overlay.size) {
+        guard let overlay = overlay else { return UIImage(ciImage: scaled) }
+        
+        var factor = max(0, overlay.sizeProportion)
+        factor = min(1, factor)
+        let overlaySize = CGSize(width: size.width * factor,
+                                 height: size.height * factor)
+        
+        if let overlayedImage = scaled.addingOverlay(overlay.image, size: overlaySize) {
             scaled = overlayedImage
         }
         

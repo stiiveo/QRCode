@@ -2,11 +2,15 @@
 import UIKit
 
 public struct Overlay: Equatable {
-    public let size: CGSize
     public let image: UIImage
+    public let sizeProportion: CGFloat
     
-    public init(size: CGSize, image: UIImage) {
-        self.size = size
+    /// Creates an Overlay object using the provided image and size proportion.
+    /// - Parameters:
+    ///   - image: The image laid above the QRCode image.
+    ///   - proportion: The size proportion relative to the QRCode image, specified as a value from 0.0 to 1.0. Values below 0.0 are interpreted as 0.0, and values above 1.0 are interpreted as 1.0.
+    public init(image: UIImage, sizeProportion: CGFloat) {
         self.image = image
+        self.sizeProportion = sizeProportion
     }
 }

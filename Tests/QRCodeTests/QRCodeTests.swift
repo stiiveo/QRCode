@@ -8,7 +8,7 @@ final class QRCodeTests: XCTestCase {
         let size = CGSize(width: 200, height: 200)
         let color = Color(foreground: .blue, background: .white)
         let overlayImage = UIImage(systemName: "star")!
-        let overlay = Overlay(size: CGSize(width: 50, height: 50), image: overlayImage)
+        let overlay = Overlay(image: overlayImage, sizeProportion: 0.3)
         let qrCode = QRCode(url: url, correctionLevel: correctionLevel, size: size, color: color, overlay: overlay)
         
         XCTAssertEqual(qrCode.url, url)
@@ -33,8 +33,7 @@ final class QRCodeTests: XCTestCase {
             size: size,
             color: Color(foreground: .black,
                          background: .white),
-            overlay: Overlay(size: .init(width: 50, height: 50),
-                             image: anyImage()))
+            overlay: Overlay(image: anyImage(), sizeProportion: 0.3))
         
         let image = qrCode.image()
         
