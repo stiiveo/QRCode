@@ -3,11 +3,11 @@ import Foundation
 import UIKit
 
 public struct QRCode {
-    public let url: URL
-    public let correctionLevel: CorrectionLevel
-    public let size: CGSize
-    public let color: Color
-    public let overlay: Overlay?
+    public var url: URL
+    public var correctionLevel: CorrectionLevel
+    public var size: CGSize
+    public var color: Color
+    public var overlay: Overlay?
     
     public init(
         url: URL,
