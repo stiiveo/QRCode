@@ -2,8 +2,8 @@
 import UIKit
 
 public struct Overlay: Equatable {
-    public let image: UIImage
-    public let sizeProportion: CGFloat
+    public var image: UIImage
+    public var sizeProportion: CGFloat
     
     /// Creates an Overlay object using the provided image and size proportion.
     /// - Parameters:
