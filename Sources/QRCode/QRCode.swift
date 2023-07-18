@@ -24,6 +24,7 @@ public struct QRCode {
     }
 }
  
+#if canImport(UIKit)
 extension QRCode {
     public func image() -> UIImage? {
         guard let qrcodeImage = CIImage.qrCode(
@@ -48,3 +49,4 @@ extension QRCode {
         return UIImage(ciImage: scaled)
     }
 }
+#endif
