@@ -2,8 +2,8 @@
 import UIKit
 
 public struct Color: Equatable {
-    public let foreground: UIColor
-    public let background: UIColor
+    public var foreground: UIColor
+    public var background: UIColor
     
     public init(foreground: UIColor, background: UIColor) {
         self.foreground = foreground
