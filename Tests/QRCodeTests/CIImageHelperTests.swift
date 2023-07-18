@@ -50,8 +50,4 @@ final class CIImageHelperTests: XCTestCase {
     private func anyCIImage() -> CIImage {
         CIImage(image: anyImage())!
     }
-    
-    private func anyImage() -> UIImage {
-        UIImage(systemName: "star")!
-    }
 }

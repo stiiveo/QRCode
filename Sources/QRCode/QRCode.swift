@@ -25,7 +25,7 @@ public struct QRCode {
 }
  
 extension QRCode {
-    public func image(correctionLevel: CorrectionLevel = .H) -> UIImage? {
+    public func image() -> UIImage? {
         guard let qrcodeImage = CIImage.qrCode(
             url: url,
             correctionLevel: correctionLevel.rawValue) else { return nil }

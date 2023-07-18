@@ -2,7 +2,7 @@ import XCTest
 @testable import QRCode
 
 final class QRCodeTests: XCTestCase {
-    func test_initializer_parameters() throws {
+    func test_qrCode_initializer() {
         let url = anyURL()
         let correctionLevel = CorrectionLevel.H
         let size = CGSize(width: 200, height: 200)
@@ -18,11 +18,28 @@ final class QRCodeTests: XCTestCase {
         XCTAssertEqual(qrCode.overlay, overlay)
     }
     
-    func test_correction_levels() {
+    func test_correctionLevel_rawValues() {
         XCTAssertEqual(CorrectionLevel.H.rawValue, "H")
         XCTAssertEqual(CorrectionLevel.L.rawValue, "L")
         XCTAssertEqual(CorrectionLevel.M.rawValue, "M")
         XCTAssertEqual(CorrectionLevel.Q.rawValue, "Q")
+    }
+    
+    func test_image_generatesImage() {
+        let size = CGSize(width: 300, height: 300)
+        let qrCode = QRCode(
+            url: anyURL(),
+            correctionLevel: .H,
+            size: size,
+            color: Color(foreground: .black,
+                         background: .white),
+            overlay: Overlay(size: .init(width: 50, height: 50),
+                             image: anyImage()))
+        
+        let image = qrCode.image()
+        
+        XCTAssertNotNil(image, "Failed to generate image from \(qrCode)")
+        XCTAssertEqual(image?.size, size, "Expected image size \(size), got \(String(describing: image?.size)) instead")
     }
     
     private func anyURL() -> URL {
