@@ -4,17 +4,20 @@ import UIKit
 
 public struct QRCode {
     public let url: URL
+    public let correctionLevel: CorrectionLevel
     public let size: CGSize
     public let color: Color
     public let overlay: Overlay?
     
     public init(
         url: URL,
+        correctionLevel: CorrectionLevel,
         size: CGSize = CGSize(width: 300, height: 300),
         color: Color = Color(foreground: .black, background: .white),
         overlay: Overlay? = nil
     ) {
         self.url = url
+        self.correctionLevel = correctionLevel
         self.size = size
         self.color = color
         self.overlay = overlay
