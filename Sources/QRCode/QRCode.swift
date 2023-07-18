@@ -11,7 +11,7 @@ public struct QRCode {
     
     public init(
         url: URL,
-        correctionLevel: CorrectionLevel,
+        correctionLevel: CorrectionLevel = .H,
         size: CGSize = CGSize(width: 300, height: 300),
         color: Color = Color(foreground: .black, background: .white),
         overlay: Overlay? = nil
